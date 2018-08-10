@@ -4,6 +4,10 @@ Retro png sprite sheet slicing utility
 
 Divides an indexed palette png image into smaller tiles and converts them to pixels packed into bytes, writing the output to Motorola assembler FCB statements, or raw bytes, or individual png files.
 
+Optionally slices the image first into 'big tiles', giving flexibility in converting images containing compound sprites.
+
+Colour indices within the range covered by the output depth are copied unmodified to the output. i.e colour zero in the source image becomes colour zero in the output. The actual colours in the palette have no effect on the output.
+
 Any colours outside of the range permitted by the output depth are converted to colour index zero.
 
 Optionally generated masks convert out of range colours to the max allowed index and all other colours become index zero.
@@ -15,7 +19,9 @@ This was originally written to convert images for use in retro games, particular
 
 ## Requirements
 
-Requires pypng available from here:
+Python 3
+
+Also requires pypng available from here:
 
 https://github.com/drj11/pypng
 
